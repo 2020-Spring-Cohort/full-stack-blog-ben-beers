@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../PostStyle.css">
+    <meta charset="UTF-8">
+    <title>ReviewPage</title>
+</head>
+
+<body>
+<h2 th:text="${Post.getAuthor().name}">Author Name</h2>
+<h3 th:text="${Post.getText}"> Post Text</h3>
+
+<!--<div th:each="hashtag : ${Review.hashtags}" th:text = "${hashtag.name}"></div>-->
+
+<form th:action="'/post/' + ${Post.id} + '/add-post'" method="POST">
+    <input name = "postName" type="text">
+    <button type="submit">Add Post</button>
+</form>
+
+
+<a th:href="'/authors'"> Home</a>
+<a th:href="@{'/authors/'+ ${Post.getAuthor().id}}">Review Page</a>
+
+</body>
+</html>
