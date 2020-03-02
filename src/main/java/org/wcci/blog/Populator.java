@@ -1,5 +1,6 @@
 package org.wcci.blog;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ public class Populator implements CommandLineRunner {
     PostStorage postStorage;
 
     public Populator(AuthorStorage authorStorage, PostStorage postStorage){
+
         this.authorStorage = authorStorage;
         this.postStorage = postStorage;
     }
@@ -25,6 +27,7 @@ public class Populator implements CommandLineRunner {
         authorStorage.store(ben);
         Post defaultPost = new Post(ben,"Hello, world!");
         postStorage.store(defaultPost);
+        ben.addPost(defaultPost);
     }
 
 

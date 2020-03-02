@@ -1,0 +1,10 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <link rel="stylesheet" type="text/css" th:href="@{AuthorStyle.css}">
+</head>
+<body>
+<tr class="sidenav" th:each="post : ${author.getPosts()}">
+    <td th:text="${post.getText()}">001</td>
+</tr>
+</body>
+</html>
